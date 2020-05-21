@@ -9,6 +9,14 @@ Service C runs in http port 8082;
 
 Example HTTP GET Request: http://localhost:8080/service-a/info/my name is/Emerson/what about you
 
+## Creating Quarkus services containers
+
+In root folder of service project, execute:
+  a. ./mvnw package -Pnative -Dquarkus.native.container-build=true
+  b. docker build -f src/main/docker/Dockerfile.native -t emersonluiz91/servicea .
+  c. docker run -i --rm -p 8080:8080 emersonluiz91/servicea
+
+
 ## Docker Commands
 
 docker run -d \
@@ -24,6 +32,8 @@ docker run -d --name jaeger \
  -p 16686:16686 \
  -p 14268:14268 \
  jaegertracing/all-in-one:1.18.0
+
+
 
 ## References
 
